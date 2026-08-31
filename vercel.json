@@ -12,6 +12,26 @@
       "dest": "/index.html"
     },
     {
+      "src": "/static/(.*)",
+      "dest": "/bot/static/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/bot/assets/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/bot/js/$1"
+    },
+    {
+      "src": "/deriv-logo.svg",
+      "dest": "/bot/deriv-logo.svg"
+    },
+    {
+      "src": "/bot/(.*)",
+      "dest": "/bot/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/$1"
     }
