@@ -1,0 +1,19 @@
+import pyautogui
+import time
+
+# Wait 5 seconds before starting
+print("Starting in 5 seconds... Move mouse to top-left corner to stop.")
+time.sleep(5)
+
+screenWidth, screenHeight = pyautogui.size()
+y = screenHeight // 2
+
+try:
+    while True:
+        pyautogui.moveTo(100, y, duration=1)
+        time.sleep(0.5)
+        pyautogui.moveTo(screenWidth - 100, y, duration=1)
+        time.sleep(0.5)
+
+except KeyboardInterrupt:
+    print("\nStopped by user (Ctrl+C).")
