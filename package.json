@@ -4,6 +4,8 @@
   "private": true,
   "description": "Static Deriv trading bot workspace",
   "scripts": {
-    "build": "node -e \"console.log('Static site: no build step required')\""
+    "build": "node -e \"console.log('Static site: no build step required')\"",
+    "dev": "python3 -m http.server ${PORT:-3000}",
+    "start": "python3 -m http.server ${PORT:-3000}"
   }
 }
