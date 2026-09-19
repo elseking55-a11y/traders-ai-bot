@@ -9,7 +9,10 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/bot/index.html"
+      "status": 308,
+      "headers": {
+        "Location": "/bot/"
+      }
     },
     {
       "src": "/static/(.*)",

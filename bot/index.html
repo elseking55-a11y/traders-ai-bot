@@ -34,6 +34,64 @@
             :root {
                 font-size: 62.5%;
             }
+
+            .bot-loading-fallback {
+                display: none;
+                min-height: calc(100vh - 5.6rem);
+                padding: 3.2rem 1.6rem;
+                align-items: center;
+                justify-content: center;
+                background: #f7f9fb;
+                color: #1f2937;
+                font-family: 'IBM Plex Sans', system-ui, sans-serif;
+            }
+
+            .bot-loading-fallback__card {
+                width: min(100%, 52rem);
+                padding: 3.2rem;
+                border: 1px solid #dfe5eb;
+                border-radius: 1.6rem;
+                background: #fff;
+                box-shadow: 0 1.6rem 4rem rgba(31, 41, 55, 0.1);
+                text-align: center;
+            }
+
+            .bot-loading-fallback__card h1 {
+                margin: 0 0 1rem;
+                font-size: 2.4rem;
+            }
+
+            .bot-loading-fallback__card p {
+                margin: 0 0 2.4rem;
+                color: #5b6673;
+                font-size: 1.5rem;
+                line-height: 1.6;
+            }
+
+            .bot-loading-fallback__actions {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .bot-loading-fallback__actions a {
+                display: inline-flex;
+                min-height: 4rem;
+                align-items: center;
+                justify-content: center;
+                padding: 0 1.6rem;
+                border-radius: 0.8rem;
+                background: #ffcf4a;
+                color: #1f2937;
+                font-size: 1.4rem;
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            .bot-loading-fallback__actions a:last-child {
+                background: #eef2f5;
+            }
         </style>
         <link href="/bot/static/css/83.94640a0a.css" rel="stylesheet">
         <link href="/bot/static/css/index.88537e45.css" rel="stylesheet">
@@ -58,6 +116,26 @@
         <div id="modal_root" class="modal-root"></div>
         <div id="popup_root" class="popup-root"></div>
         <div id="root" suppressHydrationWarning></div>
+        <main id="bot-loading-fallback" class="bot-loading-fallback" aria-live="polite">
+            <section class="bot-loading-fallback__card">
+                <h1>Deriv Bot is taking too long to load</h1>
+                <p>The trading workspace could not finish connecting in this preview. Refresh to retry, or return to the main workspace while the connection is restored.</p>
+                <div class="bot-loading-fallback__actions">
+                    <a href="/bot/" onclick="window.location.reload(); return false;">Retry</a>
+                    <a href="/">Return home</a>
+                </div>
+            </section>
+        </main>
+        <script>
+            window.setTimeout(function () {
+                var root = document.getElementById('root');
+                var fallback = document.getElementById('bot-loading-fallback');
+                if (root && fallback && root.textContent.includes('Initializing Deriv Bot')) {
+                    fallback.style.display = 'flex';
+                    root.style.display = 'none';
+                }
+            }, 5000);
+        </script>
 
         <!-- LiveChat script -->
         <script type="text/javascript" defer>
