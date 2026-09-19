@@ -12,6 +12,14 @@
       "dest": "/index.html"
     },
     {
+      "src": "/ai-scanner",
+      "dest": "/ai-scanner/index.html"
+    },
+    {
+      "src": "/ai-scanner/(.*)",
+      "dest": "/ai-scanner/$1"
+    },
+    {
       "src": "/static/(.*)",
       "dest": "/bot/static/$1"
     },
